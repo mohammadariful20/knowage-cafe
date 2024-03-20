@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Blog from "../Blog/Blog";
 
-export default function Blogs({ handleBookmarks, handleSpentime }) {
+export default function Blogs({
+  handleBookmarks,
+  handleSpentime,
+  handleMarkCount,
+}) {
   const [blogs, steBlogs] = useState([]);
 
   useEffect(() => {
@@ -19,6 +23,7 @@ export default function Blogs({ handleBookmarks, handleSpentime }) {
             blog={blog}
             handleBookmarks={handleBookmarks}
             handleSpentime={handleSpentime}
+            handleMarkCount={handleMarkCount}
           ></Blog>
         );
       })}

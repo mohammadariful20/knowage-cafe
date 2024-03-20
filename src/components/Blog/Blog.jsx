@@ -1,7 +1,12 @@
 import React from "react";
 import img from "../../../public/images/Frame.svg";
 
-export default function Blog({ blog, handleBookmarks, handleSpentime }) {
+export default function Blog({
+  blog,
+  handleBookmarks,
+  handleSpentime,
+  handleMarkCount,
+}) {
   const {
     cover,
     title,
@@ -27,7 +32,10 @@ export default function Blog({ blog, handleBookmarks, handleSpentime }) {
           <p>{reading_time} min read </p>
           <img
             className="w-6 h-6 ml-2"
-            onClick={() => handleSpentime(reading_time)}
+            onClick={() => {
+              handleMarkCount();
+              handleBookmarks(title);
+            }}
             src={img}
             alt=""
           />
@@ -39,7 +47,10 @@ export default function Blog({ blog, handleBookmarks, handleSpentime }) {
           return <p key={tag.index}> #{tag}</p>;
         })}
       </div>
-      <button onClick={() => handleBookmarks(title)} className="mb-5 mt-2">
+      <button
+        onClick={() => handleSpentime(reading_time)}
+        className="mb-5 mt-2 text-pink-300 underline"
+      >
         Mark as read{" "}
       </button>
     </div>
