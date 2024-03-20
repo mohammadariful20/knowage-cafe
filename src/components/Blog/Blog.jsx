@@ -23,9 +23,14 @@ export default function Blog({ blog, handleBookmarks, handleSpentime }) {
             <p className="my-2">{posted_date}</p>
           </div>
         </div>
-        <div className="flex">
-          <p>{reading_time} min</p>
-          <img onClick={() => handleSpentime(reading_time)} src={img} alt="" />
+        <div className="flex items-center">
+          <p>{reading_time} min read </p>
+          <img
+            className="w-6 h-6 ml-2"
+            onClick={() => handleSpentime(reading_time)}
+            src={img}
+            alt=""
+          />
         </div>
       </div>
       <h1 className="text-3xl italic my-4 text-start">Title: {title}</h1>
