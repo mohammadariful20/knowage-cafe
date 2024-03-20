@@ -1,6 +1,7 @@
 import React from "react";
+import img from "../../../public/images/Frame.svg";
 
-export default function Blog({ blog }) {
+export default function Blog({ blog, handleBookmarks, handleSpentime }) {
   const {
     cover,
     title,
@@ -22,17 +23,20 @@ export default function Blog({ blog }) {
             <p className="my-2">{posted_date}</p>
           </div>
         </div>
-        <div>
-          <p>{reading_time} minetes</p>
+        <div className="flex">
+          <p>{reading_time} min</p>
+          <img onClick={() => handleSpentime(reading_time)} src={img} alt="" />
         </div>
       </div>
       <h1 className="text-3xl italic my-4 text-start">Title: {title}</h1>
       <div className="flex gap-3 mt-8">
         {hashtags.map((tag) => {
-          return <p> #{tag}</p>;
+          return <p key={tag.index}> #{tag}</p>;
         })}
       </div>
-      <button className="mb-5 mt-2">Mark as read </button>
+      <button onClick={() => handleBookmarks(title)} className="mb-5 mt-2">
+        Mark as read{" "}
+      </button>
     </div>
   );
 }
